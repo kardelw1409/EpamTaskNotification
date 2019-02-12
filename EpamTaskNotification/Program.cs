@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EpamTaskNotification.NewCollection;
+using System;
+using System.Collections.Generic;
 
 namespace Notification
 {
@@ -7,8 +9,15 @@ namespace Notification
         static void Main(string[] args)
         {
             Notifier notifier = new Notifier();
-            IDisplay console = new ConsoleDisplay(notifier);
-            IDisplay fileDisplay = new FileDisplay(notifier);
+            var col = new MyCollection<IDisplay>
+            {
+                new ConsoleDisplay(),
+                new FileDisplay()
+            };
+            foreach (IDisplay disp in col)
+            {
+                notifier.TimerEvent += disp.Display;
+            }
             notifier.Update(5);
             Console.ReadLine();
         }

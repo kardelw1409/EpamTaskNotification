@@ -45,6 +45,8 @@
     <Compile Include="ConsoleDisplay.cs" />
     <Compile Include="FileDisplay.cs" />
     <Compile Include="IDisplay.cs" />
+    <Compile Include="NewCollection\MyCollection.cs" />
+    <Compile Include="NewCollection\Node.cs" />
     <Compile Include="Notifier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
