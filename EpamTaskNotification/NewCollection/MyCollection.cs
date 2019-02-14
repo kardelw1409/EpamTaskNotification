@@ -14,21 +14,6 @@ namespace EpamTaskNotification.NewCollection
         public int Count { get; set; }
         private int position = 0;
 
-        public T Current
-        {
-            get
-            {
-                try
-                {
-                    return CurrentNode.Value;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
-
         public MyCollection()
         {
             First = Last = null;
@@ -44,10 +29,8 @@ namespace EpamTaskNotification.NewCollection
                 Last = node;
                 CurrentNode = node;
                 Count++;
-                return;
             }
-
-            if (First != null)
+            else
             {
                 Node<T> node = new Node<T>(value);
                 node.Prev = Last;

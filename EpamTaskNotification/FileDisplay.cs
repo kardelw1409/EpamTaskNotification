@@ -6,7 +6,7 @@ namespace Notification
     class FileDisplay : IDisplay
     {
 
-        public void Display(Object obj, TimeEventArgs eventArgs)
+        public void Display(object obj, TimeEventArgs eventArgs)
         {
             string path = Directory.GetCurrentDirectory() + @"\log.txt";
             using (StreamWriter writer = new StreamWriter(path, true))

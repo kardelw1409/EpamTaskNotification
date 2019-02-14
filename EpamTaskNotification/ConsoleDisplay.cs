@@ -8,7 +8,7 @@ namespace Notification
 {
     class ConsoleDisplay  : IDisplay
     {
-        public void Display(Object obj, TimeEventArgs eventArgs)
+        public void Display(object obj, TimeEventArgs eventArgs)
         {
             Console.WriteLine(eventArgs.Time.ToLongTimeString());
         }
