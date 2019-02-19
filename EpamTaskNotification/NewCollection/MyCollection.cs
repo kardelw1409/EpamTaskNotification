@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace EpamTaskNotification.NewCollection
 {
-    class MyCollection<T> : IEnumerable<T>
+    public class MyCollection<T> : IEnumerable<T>
     {
 
         public Node<T> First { get; set; }
         public Node<T> Last { get; set; }
-        public Node<T> CurrentNode { get; set; }
+        private Node<T> CurrentNode { get; set; }
         public int Count { get; set; }
         private int position = 0;
 
@@ -20,7 +20,7 @@ namespace EpamTaskNotification.NewCollection
             Count = 0;
         }
 
-        public void Add(T value)
+        public void AddInEnd(T value)
         {
             if (Count == 0)
             {
@@ -38,6 +38,39 @@ namespace EpamTaskNotification.NewCollection
                 Last = node;
                 Count++;
             }
+        }
+
+        public void AddInBegining(T value)
+        {
+            if (Count == 0)
+            {
+                Node<T> node = new Node<T>(value);
+                First = node;
+                Last = node;
+                CurrentNode = node;
+                Count++;
+            }
+            else
+            {
+                Node<T> node = new Node<T>(value);
+                node.Next = First;
+                First.Prev = node;
+                First = node;
+                Count++;
+            }
+        }
+
+        public void RemoveInEnd(T value)
+        {
+            if (Count != 0)
+            {
+                Node<T> node = Last.Prev;
+                Last.Prev = null;
+                node.Next = null;
+                Last = node;
+                Count--;
+            }
+
         }
 
         public IEnumerator<T> GetEnumerator()

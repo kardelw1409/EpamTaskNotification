@@ -23,16 +23,18 @@ namespace Notification
             notifier.Update(5);*/
 
             TimeNotifier time = new TimeNotifier(5);
-            var col = new MyCollection<IDisplay>
-            {
-                new ConsoleDisplay(),
-                new FileDisplay()
-            };
+            var col = new MyCollection<IDisplay>();
+            
+            col.AddInEnd(new ConsoleDisplay());
+            col.AddInEnd(new FileDisplay());
+            
             foreach (IDisplay disp in col)
             {
                 time.Timers.Elapsed += disp.Display;
             }
             time.Update();
+
+
 
             Console.ReadLine();
         }
