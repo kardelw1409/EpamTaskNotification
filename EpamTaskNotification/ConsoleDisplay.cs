@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Timers;
 
 namespace Notification
 {
     class ConsoleDisplay  : IDisplay
     {
-        public void Display(object obj, TimeEventArgs eventArgs)
+        public void Display(object obj, ElapsedEventArgs eventArgs)
         {
-            Console.WriteLine(eventArgs.Time.ToLongTimeString());
+            Console.WriteLine(eventArgs.SignalTime.ToLongTimeString());
         }
     }
 }

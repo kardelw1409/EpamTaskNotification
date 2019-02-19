@@ -2,7 +2,7 @@
 
 namespace Notification
 {
-    public class TimeEventArgs : EventArgs
+    public class TimeEventArgs
     {
         public DateTime Time { get; set; }
     }

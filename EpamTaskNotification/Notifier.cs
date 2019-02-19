@@ -6,7 +6,6 @@ namespace Notification
     class Notifier
     {
         public event EventHandler<TimeEventArgs> TimerEvent;
-        //Timer timer;
 
         public void Update(int second)
         {
