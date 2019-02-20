@@ -12,7 +12,6 @@ namespace EpamTaskNotification.NewCollection
         public Node<T> Last { get; set; }
         private Node<T> CurrentNode { get; set; }
         public int Count { get; set; }
-        private int position = 0;
 
         public MyCollection()
         {
@@ -20,7 +19,7 @@ namespace EpamTaskNotification.NewCollection
             Count = 0;
         }
 
-        public void AddInEnd(T value)
+        public void Add(T value)
         {
             if (Count == 0)
             {
@@ -40,7 +39,7 @@ namespace EpamTaskNotification.NewCollection
             }
         }
 
-        public void AddInBegining(T value)
+        public void AddFirst(T value)
         {
             if (Count == 0)
             {
@@ -60,7 +59,7 @@ namespace EpamTaskNotification.NewCollection
             }
         }
 
-        public void RemoveInEnd(T value)
+        public void RemoveLast()
         {
             if (Count != 0)
             {
@@ -73,9 +72,23 @@ namespace EpamTaskNotification.NewCollection
 
         }
 
+        public void RemoveFirst()
+        {
+            if (Count != 0)
+            {
+                Node<T> node = First.Next;
+                First.Next = null;
+                node.Prev = null;
+                First = node;
+                CurrentNode = First;
+                Count--;
+            }
+
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
-
+            int position = 0;
             while (true)
             {
                 if (position == Count)

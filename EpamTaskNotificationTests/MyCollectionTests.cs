@@ -14,10 +14,37 @@ namespace EpamTaskNotificationTests
             var collection = new MyCollection<int>();
             int addedNumber = 5;
             //Act
-            collection.AddInEnd(addedNumber);
+            collection.Add(addedNumber);
             //Assert
             int resultNumber = collection.First.Value;
             Assert.AreEqual(addedNumber, resultNumber, 0.001, "Invalid number in collection");
+        }
+
+        [TestMethod]
+        public void RemoveInEnd_RemoveInEndOneElement_OneElementRemove()
+        {
+            //Arrange
+            int firstNum = 9;
+            int secondNum = 10;
+            var collection = new MyCollection<int> { firstNum, secondNum };
+            //Act
+            collection.RemoveLast();
+            //Assert
+            int result = collection.First.Value;
+            Assert.AreEqual(firstNum, result, 0.001, "Invalid number in collection");
+
+        }
+        [TestMethod]
+        public void Count_CountTwoElement_TwoElementResult()
+        {
+            //Arrange
+            int firstNum = 5;
+            int secondNum = 6;
+            var collection = new MyCollection<int> { firstNum, secondNum };
+            //Act
+            int result = collection.Count;
+            //Assert
+            Assert.AreEqual(2, result, 0.001, "Invalid count in collection");
         }
     }
 }

@@ -25,16 +25,14 @@ namespace Notification
             TimeNotifier time = new TimeNotifier(5);
             var col = new MyCollection<IDisplay>();
             
-            col.AddInEnd(new ConsoleDisplay());
-            col.AddInEnd(new FileDisplay());
+            col.Add(new ConsoleDisplay());
+            col.Add(new FileDisplay());
             
             foreach (IDisplay disp in col)
             {
                 time.Timers.Elapsed += disp.Display;
             }
             time.Update();
-
-
 
             Console.ReadLine();
         }
