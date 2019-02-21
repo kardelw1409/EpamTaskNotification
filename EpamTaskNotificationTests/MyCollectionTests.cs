@@ -17,6 +17,8 @@ namespace EpamTaskNotificationTests
             collection.Add(addedNumber);
             //Assert
             int resultNumber = collection.First.Value;
+            int resultCount = collection.Count;
+            Assert.AreEqual(1, resultCount, 0.001, "Invalid count in collection");
             Assert.AreEqual(addedNumber, resultNumber, 0.001, "Invalid number in collection");
         }
 
@@ -30,7 +32,9 @@ namespace EpamTaskNotificationTests
             //Act
             collection.RemoveLast();
             //Assert
+            int resultCount = collection.Count;
             int result = collection.First.Value;
+            Assert.AreEqual(1, resultCount, 0.001, "Invalid count in collection");
             Assert.AreEqual(firstNum, result, 0.001, "Invalid number in collection");
 
         }
